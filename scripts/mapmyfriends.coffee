@@ -20,14 +20,13 @@ navigator.geolocation.getCurrentPosition (position) ->
       title: friend.name
       infoWindow:
         content: """
-                 <div>
-                   <h1>#{friend.name}</h1>
-                   <h2>#{friend.phone}</h2>
+                 <div class='info'>
+                   <h1><a href='tel:#{friend.phone}'>#{friend.name}</a> <small>#{friend.phone}</small></h1>
                    <h3>#{friend.address}</h3>
                  </div>
                  """
 
-  map = new GMaps(div: '#map-canvas', lat: me.lat, lng: me.lng)
+  map = new GMaps(div: '#map-canvas', zoom: 12, lat: me.lat, lng: me.lng)
   map.addMarker me
 
   friends = localStorage.getObject('map-my-friends') or []
