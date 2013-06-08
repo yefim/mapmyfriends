@@ -17,6 +17,7 @@ navigator.geolocation.getCurrentPosition (position) ->
     map.addMarker
       lat: person.lat
       lng: person.lng
+      title: person.name
       click: ->
         map.drawRoute
           origin: [me.lat, me.lng]
@@ -30,8 +31,7 @@ navigator.geolocation.getCurrentPosition (position) ->
   map.addMarker({lat: me.lat, lng: me.lng})
 
   people = localStorage.getObject('map-my-friends') or []
-  for person in people
-    add_marker {lat: person.lat, lng: person.lng}
+  people.forEach add_marker
 
   document.getElementById('save').addEventListener 'click', ->
     name_input = document.getElementById('name')
@@ -42,9 +42,13 @@ navigator.geolocation.getCurrentPosition (position) ->
       callback: (results, status) ->
         if status is 'OK'
           latlng = results[0].geometry.location
-          [lat, lng] = [latlng.lat(), latlng.lng()]
+          person =
+            lat: latlng.lat()
+            lng: latlng.lng()
+            name: name_input.value
+            phone: phone_input.value
 
-          map.setCenter(lat, lng)
-          add_marker {lat, lng}
+          map.setCenter(person.lat, person.lng)
+          add_marker person
 
-          localStorage.pushObject('map-my-friends', {lat, lng})
+          localStorage.pushObject('map-my-friends', person)
