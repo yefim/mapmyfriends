@@ -14,7 +14,6 @@ Storage::pushObject = (key, val) ->
 navigator.geolocation.getCurrentPosition (position) ->
   me = {lat: position.coords.latitude, lng: position.coords.longitude}
   add_marker = (person) ->
-    console.log person
     map.addMarker
       lat: person.lat
       lng: person.lng
