@@ -45,6 +45,7 @@ navigator.geolocation.getCurrentPosition (position) ->
             name: name.value
             phone: phone.value
             address: address.value
+          [name, phone, address].forEach (i) -> i.value = ''
 
           map.setCenter(friend.lat, friend.lng)
           add_marker friend
