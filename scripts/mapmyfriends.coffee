@@ -18,35 +18,28 @@ navigator.geolocation.getCurrentPosition (position) ->
       lat: person.lat
       lng: person.lng
       title: person.name
-      click: ->
-        map.drawRoute
-          origin: [me.lat, me.lng]
-          destination: [person.lat, person.lng]
-          travelMode: 'driving'
-          strokeColor: '#131540'
-          strokeOpacity: 0.6
-          strokeWeight: 6
+      infoWindow:
+        content: """
+                 <div>
+                   <h1>#{person.name}</h1>
+                   <h2>#{person.phone}</h2>
+                 </div>
+                 """
 
   map = new GMaps(div: '#map-canvas', lat: me.lat, lng: me.lng)
-  map.addMarker({lat: me.lat, lng: me.lng})
+  map.addMarker me
 
   people = localStorage.getObject('map-my-friends') or []
   people.forEach add_marker
 
   document.getElementById('save').addEventListener 'click', ->
-    name_input = document.getElementById('name')
-    phone_input = document.getElementById('phone')
-    address_input = document.getElementById('address')
+    [name, phone, address] = ['name', 'phone', 'address'].map (a) -> document.getElementById a
     GMaps.geocode
-      address: address_input.value
+      address: address.value
       callback: (results, status) ->
         if status is 'OK'
           latlng = results[0].geometry.location
-          person =
-            lat: latlng.lat()
-            lng: latlng.lng()
-            name: name_input.value
-            phone: phone_input.value
+          person = {lat: latlng.lat(), lng: latlng.lng(), name: name.value, phone: phone.value}
 
           map.setCenter(person.lat, person.lng)
           add_marker person
