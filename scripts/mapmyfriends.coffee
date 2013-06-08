@@ -10,14 +10,28 @@ Storage::pushObject = (key, val) ->
   a.push val
   @setObject key, a
 
+
 navigator.geolocation.getCurrentPosition (position) ->
-  [lat, lng] = [position.coords.latitude, position.coords.longitude]
-  map = new GMaps(div: '#map-canvas', lat: lat, lng: lng)
-  map.addMarker(lat: lat, lng: lng)
+  me = {lat: position.coords.latitude, lng: position.coords.longitude}
+  add_marker = (lat, lng) ->
+    map.addMarker
+      lat: lat
+      lng: lng
+      click: ->
+        map.drawRoute
+          origin: [me.lat, me.lng]
+          destination: [lat, lng]
+          travelMode: 'driving'
+          strokeColor: '#131540'
+          strokeOpacity: 0.6
+          strokeWeight: 6
+
+  map = new GMaps(div: '#map-canvas', lat: me.lat, lng: me.lng)
+  map.addMarker(lat: me.lat, lng: me.lng)
 
   people = localStorage.getObject('map-my-friends') or []
   for person in people
-    map.addMarker(lat: person.lat, lng: person.lng)
+    add_marker(person.lat, person.lng)
 
   document.getElementById('save').addEventListener 'click', ->
     name_input = document.getElementById('name')
@@ -31,6 +45,6 @@ navigator.geolocation.getCurrentPosition (position) ->
           [lat, lng] = [latlng.lat(), latlng.lng()]
 
           map.setCenter(lat, lng)
-          map.addMarker(lat: lat, lng: lng)
+          add_marker lat, lng
 
-          localStorage.pushObject(lat: lat, lng: lng)
+          localStorage.pushObject('map-my-friends', {lat: lat, lng: lng})
