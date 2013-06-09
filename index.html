@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Map My Friends</title>
+    <link rel='stylesheet' href='stylesheets/style.css'>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr9iLzNdlN3ipdEoQ2Iogk_1w2d1GW8AM&sensor=false">
+    </script>
+    <script type='text/javascript' src='scripts/gmaps.js'></script>
+  </head>
+  <body>
+    <div id='input'>
+      <input class='input' id='name' type='text' name='name' placeholder='Name' autofocus>
+      <input class='input' id='phone' type='tel' name='tel' placeholder='Phone'>
+      <input class='input' id='address' type='text' name='address' placeholder='Address'>
+      <input class='cupid-green' id='save' type='submit' value='Add Friend'>
+    </div>
+    <div id="map-canvas"></div>
+    <script type="text/javascript" src='scripts/mapmyfriends.js'></script>
+  </body>
+</html>

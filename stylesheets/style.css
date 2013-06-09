@@ -1,0 +1,82 @@
+html {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  height: 100%; }
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+#map-canvas {
+  float: left;
+  height: 90%;
+  height: -webkit-calc(100% - 85px);
+  height: -moz-calc(100% - 85px);
+  height: calc(100% - 85px);
+  width: 100%; }
+
+#input {
+  padding: 20px; }
+  #input .input {
+    border: 2px solid #bdc3c7;
+    color: #34495e;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    padding: 8px 5px;
+    height: 21px;
+    text-indent: 6px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border .25s linear, color .25s linear;
+    -moz-transition: border .25s linear, color .25s linear;
+    -o-transition: border .25s linear, color .25s linear;
+    transition: border .25s linear, color .25s linear;
+    -webkit-backface-visibility: hidden;
+    outline: none; }
+  #input .input:focus {
+    border-color: #1abc9c;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+  #input .cupid-green {
+    border: none;
+    background: #bdc3c7;
+    color: #ffffff;
+    padding: 9px 12px 10px;
+    line-height: 22px;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    background-color: #1abc9c;
+    cursor: pointer; }
+  #input .cupid-green:hover {
+    color: #ffffff;
+    outline: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+    background-color: #48c9b0; }
+  #input .cupid-green:active {
+    background-color: #16a085;
+    color: rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
