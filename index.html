@@ -2,24 +2,20 @@
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 95% }
-    </style>
+    <link rel='stylesheet' href='stylesheets/style.css'>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr9iLzNdlN3ipdEoQ2Iogk_1w2d1GW8AM&sensor=false">
     </script>
     <script type='text/javascript' src='scripts/gmaps.js'></script>
   </head>
   <body>
-    <div id="map-canvas"></div>
     <div id='input'>
-      <input id='name' type='text' name='name' placeholder='Name' autofocus>
-      <input id='phone' type='tel' name='tel' placeholder='Phone'>
-      <input id='address' type='text' name='address' placeholder='Address'>
-      <input id='save' type='submit' value='Save'>
+      <input class='input' id='name' type='text' name='name' placeholder='Name' autofocus>
+      <input class='input' id='phone' type='tel' name='tel' placeholder='Phone'>
+      <input class='input' id='address' type='text' name='address' placeholder='Address'>
+      <input class='cupid-green' id='save' type='submit' value='Save'>
     </div>
+    <div id="map-canvas"></div>
     <script type="text/javascript" src='scripts/mapmyfriends.js'></script>
   </body>
 </html>
