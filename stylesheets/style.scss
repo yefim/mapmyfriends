@@ -11,6 +11,9 @@ body {
 }
 #map-canvas {
   float: left;
+  height: 90%;
+  height: -webkit-calc(100% - 85px);
+  height: -moz-calc(100% - 85px);
   height: calc(100% - 85px);
   width: 100%;
 }
