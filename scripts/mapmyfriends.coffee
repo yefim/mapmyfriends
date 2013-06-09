@@ -18,6 +18,7 @@ navigator.geolocation.getCurrentPosition (position) ->
       lat: friend.lat
       lng: friend.lng
       title: friend.name
+      animation: google.maps.Animation.DROP
       infoWindow:
         content: """
                  <div class='info'>
