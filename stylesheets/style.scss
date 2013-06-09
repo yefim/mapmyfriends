@@ -11,7 +11,7 @@ body {
 }
 #map-canvas {
   float: left;
-  height: 95%;
+  height: calc(100% - 85px);
   width: 100%;
 }
 #input {
