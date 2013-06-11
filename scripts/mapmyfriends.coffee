@@ -10,9 +10,7 @@ Storage::pushObject = (key, val) ->
   a.push val
   @setObject key, a
 
-
-navigator.geolocation.getCurrentPosition (position) ->
-  me = {lat: position.coords.latitude, lng: position.coords.longitude}
+use_this = (map) ->
   add_marker = (friend) ->
     map.addMarker
       lat: friend.lat
@@ -26,9 +24,6 @@ navigator.geolocation.getCurrentPosition (position) ->
                    <h3>#{friend.address}</h3>
                  </div>
                  """
-
-  map = new GMaps(div: '#map-canvas', zoom: 12, lat: me.lat, lng: me.lng)
-  map.addMarker me
 
   friends = localStorage.getObject('map-my-friends') or []
   friends.forEach add_marker
@@ -52,3 +47,16 @@ navigator.geolocation.getCurrentPosition (position) ->
           add_marker friend
 
           localStorage.pushObject('map-my-friends', friend)
+
+success = (position) ->
+  me = {lat: position.coords.latitude, lng: position.coords.longitude}
+  map = new GMaps(div: '#map-canvas', zoom: 12, lat: me.lat, lng: me.lng)
+  map.addMarker me
+  use_this map
+
+error = ->
+  # default loc is SF
+  map = new GMaps(div: '#map-canvas', zoom: 12, lat: 37.75, lng: 237.55)
+  use_this map
+
+navigator.geolocation.getCurrentPosition success, error
