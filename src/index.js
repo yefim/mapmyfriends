@@ -5,12 +5,13 @@ import map from 'lodash-es/map';
 import forEach from 'lodash-es/forEach'
 
 // mapmyfriends
-import {getFriends, saveFriend} from './db';
+import {getFriends, saveFriend, deleteFriends} from './db';
 import infoWindowTemplate from './info-window.ejs';
 
 const app = {
   geocoder: null,
   map: null,
+  markers: [],
   onSubmit: function() {
     const [name, phone, address] = map(['name', 'phone', 'address'], (a) => document.getElementById(a));
 
@@ -35,6 +36,20 @@ const app = {
       });
     });
   },
+  onClear: function() {
+    document.getElementById('clear').addEventListener('click', () => {
+      const sure = confirm('Are you sure you want to clear all your friends?');
+
+      if (sure) {
+        forEach(this.markers, (marker) => {
+          marker.setMap(null);
+          marker = null;
+        });
+        this.markers = [];
+        deleteFriends();
+      }
+    });
+  },
   addMarker: function(friend) {
     const infoWindow = new google.maps.InfoWindow({
       content: infoWindowTemplate(friend)
@@ -47,6 +62,8 @@ const app = {
     });
 
     marker.setMap(this.map);
+
+    this.markers.push(marker);
   },
   render: function() {
     this.geocoder = new google.maps.Geocoder();
@@ -55,6 +72,7 @@ const app = {
       zoom: 12
     });
     this.onSubmit();
+    this.onClear();
     const friends = getFriends();
     forEach(friends, this.addMarker.bind(this));
   }

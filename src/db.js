@@ -17,3 +17,7 @@ export const saveFriend = (friend) => {
   curr.push(friend);
   localStorage.setItem(KEY, JSON.stringify(curr));
 };
+
+export const deleteFriends = () => {
+  localStorage.removeItem(KEY);
+};
