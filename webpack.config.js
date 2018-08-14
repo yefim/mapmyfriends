@@ -12,6 +12,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: 'src/index.html',
       inlineSource: '.(js|css)$',
+      inject: 'head',
       minify: {collapseWhitespace: true}
     }),
     new HtmlWebpackInlineSourcePlugin()
