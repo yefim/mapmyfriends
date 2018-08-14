@@ -20,6 +20,36 @@ body {
 }
 
 #input {
-  display: block;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 20px;
+  margin: 0 auto;
+}
+
+#input label {
+  display: block;
+  margin-right: 24px;
+  font-size: 16px;
+}
+
+#input input {
+  display: block;
+  font-size: 16px;
+  border: 1px solid #444;
+  margin-top: 8px;
+  width: 200px;
+  padding: 8px;
+}
+
+#input button {
+  background: #444;
+  border: 1px solid #444;
+  padding: 12px 0;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 140px;
+  cursor: pointer;
 }

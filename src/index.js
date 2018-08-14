@@ -12,10 +12,10 @@ const app = {
   geocoder: null,
   map: null,
   onSubmit: function() {
+    const [name, phone, address] = map(['name', 'phone', 'address'], (a) => document.getElementById(a));
+
     document.getElementById('input').addEventListener('submit', (e) => {
       e.preventDefault();
-
-      const [name, phone, address] = map(['name', 'phone', 'address'], (a) => document.getElementById(a));
 
       this.geocoder.geocode({address: address.value}, (results, status) => {
         if (status === 'OK') {
