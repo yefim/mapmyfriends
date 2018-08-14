@@ -1,6 +1,7 @@
 import './styles.css';
 
-import {map, forEach} from 'lodash-es';
+import map from 'lodash-es/map';
+import forEach from 'lodash-es/forEach'
 
 import {getFriends, saveFriend} from './db';
 
