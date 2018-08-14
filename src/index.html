@@ -5,12 +5,12 @@
     <title>Map My Friends</title>
   </head>
   <body>
-    <div id='input'>
+    <form id='input' action="" method="post">
       <input class='input' id='name' type='text' name='name' placeholder='Name' autofocus>
       <input class='input' id='phone' type='tel' name='tel' placeholder='Phone'>
       <input class='input' id='address' type='text' name='address' placeholder='Address'>
-      <input class='cupid-green' id='save' type='submit' value='Add Friend'>
-    </div>
+      <button type="submit">Add Friend</button>
+    </form>
     <div id="map-canvas"></div>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr9iLzNdlN3ipdEoQ2Iogk_1w2d1GW8AM&sensor=false"></script>
   </body>
