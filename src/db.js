@@ -1,3 +1,4 @@
+// libaries
 import isArray from 'lodash-es/isArray';
 
 const KEY = 'MAP_MY_FRIENDS';

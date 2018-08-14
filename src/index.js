@@ -1,8 +1,10 @@
 import './styles.css';
 
+// libraries
 import map from 'lodash-es/map';
 import forEach from 'lodash-es/forEach'
 
+// mapmyfriends
 import {getFriends, saveFriend} from './db';
 
 const app = {
