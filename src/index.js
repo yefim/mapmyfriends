@@ -47,8 +47,16 @@ const app = {
     });
   },
   addMarker: function(friend) {
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<div><p><a href="sms:${friend.phone}">${friend.name}</a><p><p>${friend.address}</p></div>`
+    });
     const position = new google.maps.LatLng(friend.lat, friend.lng);
-    const marker = new google.maps.Marker({position});
+    const marker = new google.maps.Marker({title: friend.name, position});
+
+    marker.addListener('click', function() {
+      infoWindow.open(this.map, marker);
+    });
+
     marker.setMap(this.map);
   },
   render: function() {
