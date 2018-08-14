@@ -5,10 +5,13 @@
     <title>Map My Friends</title>
   </head>
   <body>
-    <form id='input' action="" method="post">
-      <input class='input' id='name' type='text' name='name' placeholder='Name' autofocus>
-      <input class='input' id='phone' type='tel' name='tel' placeholder='Phone'>
-      <input class='input' id='address' type='text' name='address' placeholder='Address'>
+    <form id="input" action="" method="post">
+      <label for="name">Name</label>
+      <input class="input" id="name" type="text" name="name" placeholder="Name" />
+      <label for="phone">Phone</label>
+      <input class="input" id="phone" type="tel" name="tel" placeholder="Phone" />
+      <label for="address">Address</label>
+      <input class="input" id="address" type="text" name="address" placeholder="Address" />
       <button type="submit">Add Friend</button>
     </form>
     <div id="map-canvas"></div>
