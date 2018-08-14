@@ -1,23 +1,8 @@
 import './styles.css';
 
-import {map, forEach, isArray} from 'lodash-es';
+import {map, forEach} from 'lodash-es';
 
-const db = {
-  key: 'MAP_MY_FRIENDS',
-  getFriends: function() {
-    try {
-      const friends = JSON.parse(localStorage.getItem(this.key));
-      return isArray(friends) ? friends : [];
-    } catch (_e) {
-      return [];
-    }
-  },
-  saveFriend: function(friend) {
-    const curr = this.getFriends();
-    curr.push(friend);
-    localStorage.setItem(this.key, JSON.stringify(curr));
-  }
-};
+import {getFriends, saveFriend} from './db';
 
 const app = {
   geocoder: null,
@@ -41,7 +26,7 @@ const app = {
           forEach([name, phone, address], (i) => i.value = '');
           this.map.setCenter(latlng);
           this.addMarker(friend);
-          db.saveFriend(friend);
+          saveFriend(friend);
         }
       });
     });
@@ -66,7 +51,7 @@ const app = {
       zoom: 12
     });
     this.onSubmit();
-    const friends = db.getFriends();
+    const friends = getFriends();
     forEach(friends, this.addMarker.bind(this));
   }
 };
