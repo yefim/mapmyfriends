@@ -28,6 +28,10 @@ module.exports = {
         ]
       },
       {
+        test: /\.ejs$/,
+        use: ['ejs-loader']
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {

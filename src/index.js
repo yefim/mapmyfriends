@@ -6,6 +6,7 @@ import forEach from 'lodash-es/forEach'
 
 // mapmyfriends
 import {getFriends, saveFriend} from './db';
+import infoWindowTemplate from './info-window.ejs';
 
 const app = {
   geocoder: null,
@@ -36,7 +37,7 @@ const app = {
   },
   addMarker: function(friend) {
     const infoWindow = new google.maps.InfoWindow({
-      content: `<div><p><a href="sms:${friend.phone}">${friend.name}</a><p><p>${friend.address}</p></div>`
+      content: infoWindowTemplate(friend)
     });
     const position = new google.maps.LatLng(friend.lat, friend.lng);
     const marker = new google.maps.Marker({title: friend.name, position});
