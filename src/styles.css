@@ -45,6 +45,7 @@ form input {
   margin-top: 8px;
   width: 200px;
   padding: 8px;
+  border-radius: 4px;
 }
 
 form button {
