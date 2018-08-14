@@ -54,6 +54,10 @@ form button {
   cursor: pointer;
 }
 
+#submit {
+  margin-right: 24px;
+}
+
 #clear {
   background: white;
   color: #444;
