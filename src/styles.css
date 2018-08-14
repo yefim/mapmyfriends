@@ -19,7 +19,7 @@ body {
   height: 100%;
 }
 
-#input {
+form {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -28,13 +28,13 @@ body {
   margin: 0 auto;
 }
 
-#input label {
+form label {
   display: block;
   margin-right: 24px;
   font-size: 16px;
 }
 
-#input input {
+form input {
   display: block;
   font-size: 16px;
   border: 1px solid #444;
@@ -43,7 +43,7 @@ body {
   padding: 8px;
 }
 
-#input button {
+form button {
   background: #444;
   border: 1px solid #444;
   padding: 12px 0;
@@ -52,4 +52,9 @@ body {
   border-radius: 4px;
   width: 140px;
   cursor: pointer;
+}
+
+#clear {
+  background: white;
+  color: #444;
 }
