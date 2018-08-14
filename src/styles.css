@@ -12,6 +12,10 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  margin: 0 auto;
+}
+
 #map-canvas {
   display: block;
   background: #444;
